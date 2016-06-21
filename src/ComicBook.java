@@ -16,12 +16,14 @@ public class ComicBook extends JFrame {
 	private final String programTitle; // 프로그램 제목
 	private final Dimension size; // 프로그램 크기 정하기
 
-	// 초기 설정
+	// 초기 설정, 한번 시작하면 왠만하면 안 바뀌는 옵션들
 	public ComicBook() {
+		//라벨 초기화
+		imgLabel = new JLabel(); 
 		// 이미지 등록
 		image = new Images().add("드래곤볼 1편", "dragonball1.gif").add("란마1/2 1편", "ranma1.gif")
 				.add("이누야샤 1편", "inuyasha1.gif").add("디그레이멘 1화", "dgrayman1.jpg").add("널 보고 있는 듕", "널보고있다.jpg")
-				.add("blablabla", "alfldkf.jpg").delete("란마1/2 1편");
+				.add("blablabla", "alfldkf.jpg").delete("란마1/2 1편").delete("blablabla");
 		// 프로그램 이름 등록.
 		programTitle = "만화책 대여 프로그램";
 		// 프로그램 크기 정하기
@@ -32,20 +34,11 @@ public class ComicBook extends JFrame {
 	public void run() {
 		setTitle(programTitle);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		new Container();
+		
 		contentPane = getContentPane();
 		contentPane.setLayout(new FlowLayout());
 
-		JComboBox strCombo = new JComboBox(image.getNames());
-		imgLabel = new JLabel();
-		strCombo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				JComboBox cb = (JComboBox) e.getSource();
-				imgLabel.setIcon(image.getImageIcon((String) cb.getSelectedItem()));
-
-			}
-		});
-		contentPane.add(strCombo);
+		contentPane.add(image.getJComboBox(imgLabel));
 		contentPane.add(imgLabel);
 
 		setSize(size);
