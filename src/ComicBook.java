@@ -22,8 +22,7 @@ public class ComicBook extends JFrame {
 		imgLabel = new JLabel(); 
 		// 이미지 등록
 		image = new Images().add("드래곤볼 1편", "dragonball1.gif").add("란마1/2 1편", "ranma1.gif")
-				.add("이누야샤 1편", "inuyasha1.gif").add("디그레이멘 1화", "dgrayman1.jpg").add("널 보고 있는 듕", "널보고있다.jpg")
-				.adsf
+				.add("이누야샤 1편", "inuyasha1.gif").add("디그레이멘 1화", "dgrayman1.jpg").add("널 보고 있는 듕", "널보고있다.jpg");
 		// 프로그램 이름 등록.
 		programTitle = "만화책 대여 프로그램";
 		// 프로그램 크기 정하기
